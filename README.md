@@ -1,12 +1,95 @@
-# React + Vite
+# ⚛️ Shivam Dhingra – React Portfolio (Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my **personal portfolio website**, built with **React** and powered by **Vite** for fast development and production builds. The website is structured into reusable components and organized page sections to showcase my skills, projects, and contact information.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📁 Folder Structure
 
-## Expanding the ESLint configuration
+The app is organized with clarity and modularity:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+New_Portfolio/
+├── public/ # Static assets (e.g. favicon, index.html)
+├── src/
+│ ├── assets/ # Images, icons, and logos
+│ ├── components/ # Reusable UI components (Header, Footer, etc.)
+│ ├── pages/ # Main sections (Home, About, Experience, Skills, Projects, Contact)
+│ ├── App.jsx # Combines all sections into a single layout
+│ └── main.jsx # Entry point - mounts App to #root
+├── index.html # Root HTML template
+├── package.json # Project metadata and scripts
+└── vite.config.js # Vite configuration
+
+
+---
+
+## 🧩 Components
+
+### ✅ `Header`
+- Responsive navbar with smooth scrolling
+- Navigation links to all major sections
+- Active state and hover effects using custom CSS
+
+### ✅ `Pages`
+- **Home** – Hero section with your name and brief intro
+- **About** – Short bio and career goals
+- **Experience** – Timeline or list of past work
+- **Skills** – Grid/list of technologies you know
+- **Projects** – Highlighted portfolio items
+- **Contact** – Email, GitHub, LinkedIn links with form (optional)
+
+---
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/new-portfolio.git
+cd new-portfolio
+npm install
+
+
+npm run build      # Production build
+npm run preview    # Preview build locally
+
+✨ Features
+Modern UI with custom hover styles
+
+Clean typography using px units (no rem)
+
+No external frameworks (Tailwind/Bootstrap not used)
+
+Pure React + Vite setup
+
+Fast HMR (Hot Module Reloading)
+
+🧠 Tech Stack
+React
+
+Vite
+
+CSS (Flexbox + Media Queries)
+
+JSX Components
+
+📬 Contact
+📧 Email: yourname@example.com
+
+🌐 GitHub: @yourusername
+
+🔗 LinkedIn: Your LinkedIn
+
+📝 License
+This project is licensed under the MIT License.
+
+Designed and developed by Shivam Dhingra using React & Vite
+
+---
+
+Let me know if you'd like:
+- A **dark mode badge**
+- **Live demo** badge/link
+- Support for deploying on **GitHub Pages** or **Netlify**
+
+I can generate it instantly.
