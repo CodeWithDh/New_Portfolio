@@ -88,8 +88,5 @@ Designed and developed by Shivam Dhingra using React & Vite
 ---
 
 Let me know if you'd like:
-- A **dark mode badge**
-- **Live demo** badge/link
-- Support for deploying on **GitHub Pages** or **Netlify**
 
 I can generate it instantly.
