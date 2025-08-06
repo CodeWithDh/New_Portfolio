@@ -19,6 +19,8 @@
     align-items: center;
 }
 .socialIcon{
+    margin-left: 0.2rem;
+    margin-top: 0.5rem;
     font-size: 1.5rem;
     background-color:red;
     border-radius: 0.2rem;
@@ -55,4 +57,43 @@
     background-repeat: no-repeat; 
     width: 580px;
     height: 500px;
+}
+
+@media screen and (max-width: 1320px) {
+    .HeroSection {
+        gap: 5rem;
+        padding: 2rem;
+    }
+    .HeroContent {
+        margin-left: 2rem;
+    }
+    .Avatar {
+        width: 300px;
+        height: 250px;
+    }
+}
+
+/* --- For Mobile Screens --- */
+@media screen and (max-width: 966px) {
+    .HeroSection {
+        flex-direction: column; /* Stack content vertically */
+        gap: 2rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .HeroContent {
+        margin-left: 0;
+        align-items: center;
+    }
+    .social {
+        justify-content: center;
+    }
+    .resumeBtn {
+        margin: 1rem 0;
+        margin-left:-1rem;
+    }
+    .Avatar {
+        width: 350px;
+        height: 250px;
+    }
 }

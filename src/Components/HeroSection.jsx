@@ -8,7 +8,7 @@ export default function HeroSection(){
                 fontSize:"1.3rem",
                 marginBottom:"0",
                 fontWeight:"500"
-                }}>Welcome</p>
+                }}>Hey! I Am</p>
         <h1 style={{
             fontWeight:"700",
             fontSize:"3rem",
@@ -23,13 +23,13 @@ export default function HeroSection(){
         <button onClick={()=>{window.open("/Resume.pdf","_blank")}} className="resumeBtn">Resume</button>
         <div className="social">
             <a className="socialIcon" target="_blank" href="https://github.com/CodeWithDh">
-                <i class="fa-brands fa-github"></i>
+                <i className="fa-brands fa-github"></i>
             </a>
             <a className="socialIcon" target="_blank" href="https://www.linkedin.com/in/shivamdhingra/">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
             </a>
             <a className="socialIcon" target="_blank" href="mailto:shivamdhingra04sd@gmail.com">
-                <i class="fa-solid fa-envelope"></i>
+                <i className="fa-solid fa-envelope"></i>
             </a>
         </div>
         </div>
