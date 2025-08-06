@@ -1,0 +1,58 @@
+.HeroSection{
+    width: 100%;
+    background-color: #0e1019;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10rem;
+}
+
+.HeroContent{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5rem;
+    justify-content: center;
+    color: white;
+}
+.social{
+    display: flex;
+    align-items: center;
+}
+.socialIcon{
+    font-size: 1.5rem;
+    background-color:red;
+    border-radius: 0.2rem;
+    padding:0.5rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+.socialIcon:hover{
+    background-color: rgb(226, 1, 1);
+    transform: scale(1.1);
+}
+.resumeBtn{
+    background-color: red;
+    color: white;
+    padding: 0.45rem;
+    width: 9rem;
+    margin:0.9rem 2rem;
+    border-radius: 0.5rem;
+    border: none;;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.1s ease-in-out;
+}
+.resumeBtn:hover{
+    transform: scale(0.95);
+    background-color: rgb(226, 1, 1);
+}   
+
+.Avatar{
+    background-image: url("../assets/avatar.png");
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    width: 580px;
+    height: 500px;
+}

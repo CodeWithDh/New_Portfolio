@@ -1,64 +1,37 @@
-.Header {
-    width: 100%;
-    background-color: #1d2027;
-    display: flex;
-    justify-content: space-between;
+.Header{
+    width:100%;
+    background-color: #0e1019;
+    color:white;
+    display:flex;
+    justify-content: space-around;
+    gap:20rem;
     align-items: center;
-    color: #ffffff;
-    padding: 1.2rem 8rem;
-    border-bottom: 1px solid #2a2e386f;
-    border-radius: 0.5rem;
+    padding: 1rem 0;
+    border-bottom:#ff4040a5 0.01rem solid;
 }
-#head-hr {
-    width: 95%;
-    margin: 5rem auto;
-    margin-top: -0.6rem;
-    color: #a8d5b1; /* soft light green */
-    border-color: #1d2027eb; 
-}
-
-
-
-.name h3 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #ffffff;
-    position: relative;
-    z-index: 1;
-    transition: all 0.2s ease-in-out;
+.name{
+    font-size: 1.2rem;
+    font-weight: 800;
     cursor: pointer;
+    transition:transform 0.2s ease-in-out;
 }
-
-/* Hover Effect */
-.name h3:hover {
-    transform: translateY(2px) scale(1.03);
-    z-index: 10; /* brings it to front */
+.name:hover{
+    transform: scale(1.1);
 }
-
-
-.head-bar {
+.head-bar{
     display: flex;
-    gap: 2rem;
-    margin-right: 4rem;
+    flex-direction: row;
+    gap:2rem;
+    justify-content: center;
 }
-
-.head-item {
-    color: #c5cdd7;
-    text-decoration: none;
+.head-item{
+    color:#bfb5a8;
     font-size: 1rem;
     font-weight: 500;
-    transition: color 0.3s ease, font-weight 0.3s ease;
+    cursor: pointer;
+    transition:transform 0.2s ease-in-out;
 }
-
-
-/* Highlight current item */
-.head-item.active {
-    color: #E63946;
-    font-weight: 600;
-}
-
-/* Hover effect */
-.head-item:hover {
-    color: #E63946;
+.head-item:hover{
+    transform: scale(1.1);
+    color:#FF4040;
 }

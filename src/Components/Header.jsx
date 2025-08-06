@@ -15,6 +15,5 @@ export default function Header(){
             <a className="head-item" href="#Contact">Contact</a>
         </div>
     </div>
-        <hr id="head-hr" />
     </>
 }
