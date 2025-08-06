@@ -20,15 +20,15 @@ export default function HeroSection(){
             color:"#fb2c36",
             fontWeight:"500",
         }}>MERN</span> Stcak</p>
-        <button className="resumeBtn">Resume</button>
+        <button onClick={()=>{window.open("/Resume.pdf","_blank")}} className="resumeBtn">Resume</button>
         <div className="social">
-            <a className="socialIcon" href="https://github.com/CodeWithDh">
+            <a className="socialIcon" target="_blank" href="https://github.com/CodeWithDh">
                 <i class="fa-brands fa-github"></i>
             </a>
-            <a className="socialIcon" href="https://www.linkedin.com/in/shivamdhingra/">
+            <a className="socialIcon" target="_blank" href="https://www.linkedin.com/in/shivamdhingra/">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
-            <a className="socialIcon" href="mailto:shivamdhingra04sd@gmail.com">
+            <a className="socialIcon" target="_blank" href="mailto:shivamdhingra04sd@gmail.com">
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
