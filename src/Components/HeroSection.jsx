@@ -1,7 +1,7 @@
 import "./HeroSection.css"
 
 export default function HeroSection(){
-    return <div className="HeroSection">
+    return <> <div className="HeroSection">
         <div className="HeroContent">
             <p style={{
                 color:"#fb2c36",
@@ -35,4 +35,8 @@ export default function HeroSection(){
         </div>
         <div className="Avatar"></div>
     </div>
+    <div className="marque-bg" behavior="alternate">
+            <p>WEB DEVELOPMENT : FULLSTACK , MERN STACK , BACKEND(NODEJS) &nbsp;&nbsp;&nbsp; APP DEVELOPMENT &nbsp;&nbsp;&nbsp; SEARCH ENGINE OPTIMIZATION</p> 
+    </div>
+    </>
 }
