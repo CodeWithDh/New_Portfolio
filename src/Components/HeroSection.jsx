@@ -35,8 +35,15 @@ export default function HeroSection(){
         </div>
         <div className="Avatar"></div>
     </div>
-    <div className="marque-bg" behavior="alternate">
-            <p>WEB DEVELOPMENT : FULLSTACK , MERN STACK , BACKEND(NODEJS) &nbsp;&nbsp;&nbsp; APP DEVELOPMENT &nbsp;&nbsp;&nbsp; SEARCH ENGINE OPTIMIZATION</p> 
+    <div className="slider">
+        <div class="icons">
+            <div className="icon"><i class="fa-brands fa-html5"></i></div>
+            <div className="icon"><i class="fa-brands fa-react"></i></div>
+            <div className="icon"><i class="fa-brands fa-node-js"></i></div>
+            <div className="icon"><i class="fa-brands fa-java"></i></div>    
+            <div className="icon"><i class="fa-brands fa-android"></i></div>    
+            <div className="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>    
+        </div> 
     </div>
     </>
 }
