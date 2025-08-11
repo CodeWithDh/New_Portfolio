@@ -42,7 +42,16 @@ export default function HeroSection(){
             <div className="icon"><i class="fa-brands fa-node-js"></i></div>
             <div className="icon"><i class="fa-brands fa-java"></i></div>    
             <div className="icon"><i class="fa-brands fa-android"></i></div>    
+            <div className="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div> 
+
+            <div className="icon"><i class="fa-brands fa-html5"></i></div>
+            <div className="icon"><i class="fa-brands fa-react"></i></div>
+            <div className="icon"><i class="fa-brands fa-node-js"></i></div>
+            <div className="icon"><i class="fa-brands fa-java"></i></div>    
+            <div className="icon"><i class="fa-brands fa-android"></i></div>    
             <div className="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>    
+
+            
         </div> 
     </div>
     </>
