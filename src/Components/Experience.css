@@ -6,10 +6,23 @@
 .workHeading{
     font-size: 1rem;
     color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
 }
 .work{
     background-color: #ffffff4f;
     border-radius: 1rem;
     padding: 1rem 2rem;
     margin:1rem 0rem;
+}
+
+#workTag{
+    background-color: #ffffffbb;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+#workTag:hover{
+
 }

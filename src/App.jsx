@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
 import "./App.css"
 import Header from "./Components/Header.jsx"
 import HeroSection from "./Components/HeroSection.jsx"

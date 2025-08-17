@@ -3,6 +3,13 @@
 This is my **personal portfolio website**, built with **React** and powered by **Vite** for fast development and production builds. The website is structured into reusable components and organized page sections to showcase my skills, projects, and contact information.
 
 ---
+# Color Theme
+
+1. Dark - #0e1019
+2. red - rgb(226, 1, 1)
+3. light Text - #b4b4b9
+
+
 
 ## 📁 Folder Structure
 
