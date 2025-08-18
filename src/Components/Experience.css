@@ -10,6 +10,9 @@
     font-weight: 700;
     border: none;
 }
+.details{
+    color:white;
+}
 .work{
     background-color: #ffffff4f;
     border-radius: 1rem;
