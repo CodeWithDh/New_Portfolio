@@ -1,5 +1,4 @@
 # ⚛️ Shivam Dhingra – React Portfolio (Vite)
-
 This is my **personal portfolio website**, built with **React** and powered by **Vite** for fast development and production builds. The website is structured into reusable components and organized page sections to showcase my skills, projects, and contact information.
 
 ---
@@ -63,8 +62,6 @@ npm run preview    # Preview build locally
 ✨ Features
 Modern UI with custom hover styles
 
-Clean typography using px units (no rem)
-
 No external frameworks (Tailwind/Bootstrap not used)
 
 Pure React + Vite setup
@@ -81,11 +78,11 @@ CSS (Flexbox + Media Queries)
 JSX Components
 
 📬 Contact
-📧 Email: yourname@example.com
+📧 Email: shivamdhingra04sd@gmail.com
 
-🌐 GitHub: @yourusername
+🌐 GitHub: @ShivamDh
 
-🔗 LinkedIn: Your LinkedIn
+🔗 LinkedIn: shivamdhingra
 
 📝 License
 This project is licensed under the MIT License.
@@ -94,6 +91,6 @@ Designed and developed by Shivam Dhingra using React & Vite
 
 ---
 
-Let me know if you'd like:
+Let me know if there are any changes that can refine it further:
 
-I can generate it instantly.
+I will integrate it as soon as possible.   

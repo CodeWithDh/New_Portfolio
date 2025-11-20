@@ -1,25 +1,28 @@
 h6{
     color: rgb(226, 1, 1);
     font-size: 2rem;
+    font-weight: bold; 
     display: inline-block;
     border-bottom: 0.01rem groove rgba(255, 255, 255, 0.619);
 }
 
 
 p{
-    color:black;
+    color:#fff;
     font-size: 1.05rem;
     font-weight: 500;
 }
 .About{
     background-color: #0e1019;
     padding: 5rem 10rem;
+        border-bottom: #e1dbd3 1rem solid;
 }
 
 .container{
+    margin-top: 2rem;
     width: 100%;
     height: 100%;
-    background-color: rgba(240, 248, 255, 0.433);
+    background:linear-gradient(to right, rgb(203, 3, 3), rgb(244, 79, 79));
     padding: 1rem;
     border-radius: 1rem;
 }

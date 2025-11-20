@@ -1,6 +1,7 @@
 .Experience{
     background-color: #0e1019;
     padding: 5rem 10rem;
+
 }
 
 .workHeading{
@@ -12,20 +13,29 @@
 }
 .details{
     color:white;
+    transition: transform 1 ease color 1 ease;
 }
+.details:hover{
+    transform: skew(-2deg);
+}
+
 .work{
-    background-color: #ffffff4f;
+    background:linear-gradient(to right, rgb(203, 3, 3), rgb(244, 79, 79));
     border-radius: 1rem;
     padding: 1rem 2rem;
     margin:1rem 0rem;
+    cursor: pointer;
 }
+
 
 #workTag{
     background-color: #ffffffbb;
     padding: 0.3rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 #workTag:hover{
-
+    color: rgb(206, 32, 32);
 }
+

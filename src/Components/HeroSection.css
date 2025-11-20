@@ -93,7 +93,7 @@
     }
     .resumeBtn {
         margin: 1rem -2rem;
-        /* margin-left:-1rem; */
+        
     }
     .Avatar {
         width: 350px;
@@ -104,62 +104,52 @@
 
 .slider{
     background-color: rgb(226, 1, 1);
+
     width:100%;
     overflow:hidden;
     height:5rem;
-    white-space: nowrap; /*text in one line*/
-    position:relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
+    padding: 0.5rem;
 }
-
-
-
-
-@keyframes moveIcons{
-    0% {
-        transform:translateX(100%);
-        opacity:1;
-        }
-    20%{
-        transform:translateX(80%);
-        opacity:1;
-    }
-    40%{
-        transform:translateX(60%);
-        opacity:1;
-    }
-    60%{
-        transform:translateX(40%);
-        opacity:1;
-    }
-    80%{
-        transform:translateX(20%);
-        opacity:1;
-    }
-    100%{
-        transform:translateX(0%);
-        opacity:0;
-    }
-
-}
-
 .icons{
-    width:100%;
+    /* background-color: aqua; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: row;
+    height: 4rem;
+    width:max-content;
     gap: 10rem;
     font-size: 3rem;
-    color: #fff;
-    animation: moveIcons 9s linear infinite;
+    animation: slideIcon 10s linear infinite;
 }
-.icon{
-    transition: transform 0.2 ease-in-out;
+.icons2{
+    /* background-color: aqua; */
+    margin-left: 10rem;
+    display: flex;
+    flex: row;
+    height: 4rem;
+    width:max-content;
+    gap: 10rem;
+    font-size: 3rem;
+    animation: slideIcon2 10s linear infinite;
 }
-.icon:hover{
-    transform: scale(1.1);
+
+
+
+
+@keyframes slideIcon {
+    from {
+        transform:translateX(-50%);
+    }
+    to{
+        transform:translateX(0%);
+    }
+}
+@keyframes slideIcon2 {
+    from {
+        transform:translateX(-50%);
+    }
+    to{
+        transform:translateX(0%);
+    }
 }
 

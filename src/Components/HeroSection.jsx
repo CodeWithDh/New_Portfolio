@@ -19,7 +19,7 @@ export default function HeroSection(){
         }}>Full Stack Developer | <span style={{
             color:"#fb2c36",
             fontWeight:"500",
-        }}>MERN</span> Stcak</p>
+        }}>MERN</span> Stack</p>
         <button onClick={()=>{window.open("/Resume.pdf","_blank")}} className="resumeBtn">Resume</button>
         <div className="social">
             <a className="socialIcon" target="_blank" href="https://github.com/CodeWithDh">
@@ -44,15 +44,17 @@ export default function HeroSection(){
             <div className="icon"><i class="fa-brands fa-android"></i></div>    
             <div className="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div> 
 
+        </div> 
+        <div class="icons2">
             <div className="icon"><i class="fa-brands fa-html5"></i></div>
             <div className="icon"><i class="fa-brands fa-react"></i></div>
             <div className="icon"><i class="fa-brands fa-node-js"></i></div>
             <div className="icon"><i class="fa-brands fa-java"></i></div>    
             <div className="icon"><i class="fa-brands fa-android"></i></div>    
-            <div className="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>    
+            <div className="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div> 
 
-            
         </div> 
+       
     </div>
     </>
 }
