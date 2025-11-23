@@ -1,7 +1,6 @@
 .Experience{
     background-color: #0e1019;
-    padding: 5rem 10rem;
-
+    padding: 5rem 8rem;
 }
 
 .workHeading{
@@ -11,20 +10,65 @@
     font-weight: 700;
     border: none;
 }
+.content{
+    padding: 0.5rem ;
+}
 .details{
     color:white;
     transition: transform 1 ease color 1 ease;
+    height: 6rem;
 }
 .details:hover{
     transform: skew(-2deg);
 }
 
+.cards{
+    display:flex;
+    flex-wrap: wrap ;
+    justify-content: start;
+    align-items: center;
+    gap:5rem;
+}
+.imageSlider{
+    width:28rem;
+    height: 17rem;
+    margin-left: -1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.2rem;
+    opacity: 50%;
+    border-radius: 1rem;
+
+}
+.black{
+    background-color: black;
+    border-radius: 0.98rem;
+    width:28rem;
+    height: 17rem;
+}
+.imageSlider:hover{
+    opacity: 90%;
+}
+img{
+    width:28rem;
+    height: 17rem;
+}
+.hoverEffect:hover{
+    background-color: #ffffff86;
+    border-radius: 50%;
+}
+
 .work{
     background:linear-gradient(to right, rgb(203, 3, 3), rgb(244, 79, 79));
     border-radius: 1rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     margin:1rem 0rem;
     cursor: pointer;
+    height:30rem;
+    width:31rem;
+    padding-bottom: 10rem;
+    
 }
 
 
