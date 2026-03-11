@@ -1,86 +1,93 @@
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import FoodBankIcon from '@mui/icons-material/FoodBank';
-import "./Experience.css"
-import LeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import RightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "./Experience.css";
+import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import FoodBankIcon from "@mui/icons-material/FoodBank";
+import ExperienceCard from "./ExperienceCard";
 
-import sms1 from "../assets/sms1.png"
-import sms2 from "../assets/sms2.png"
-import mh2 from "../assets/mh2.png"
-import mh1 from "../assets/mh1.png"
+import sms1 from "../assets/sms1.png";
+import sms2 from "../assets/sms2.png";
+import mh1 from "../assets/mh1.png";
+import mh2 from "../assets/mh2.png";
 
+/**
+ * Default data — edit here to add / remove experiences.
+ * You can also override this by passing an `experiences` prop
+ * from the parent (e.g. App.jsx) if you want to manage data centrally.
+ *
+ * Each entry supports:
+ *   id          — unique key
+ *   icon        — React node
+ *   title       — string
+ *   role        — string
+ *   type        — string  (Freelance / Full-time / etc.)
+ *   period      — string
+ *   description — string
+ *   tech        — string[]
+ *   images      — imported image path[]  (optional — omit to hide slider)
+ */
+const DEFAULT_EXPERIENCES = [
+  {
+    id: 1,
+    icon: <PhoneAndroidIcon />,
+    title: "Smart Mobile Shop",
+    role: "Full Stack Developer",
+    type: "Freelance Client",
+    period: "2024 — 2025",
+    description:
+      "Built a complete web app for a local mobile vendor — to manage sale and purchase of 2nd hand mobiles powered by Google Cloud Platform. Delivered end-to-end from design to deployment.",
+    tech: ["PHP", "MySQL", "GCP", ],
+    images: [sms1, sms2],
+  },
+  {
+    id: 2,
+    icon: <FoodBankIcon />,
+    title: "Meat Hub",
+    role: "Full Stack Developer",
+    type: "College Major Project → Sold to Client",
+    period: "2024",
+    description:
+      "Restaurant and Meat Shop Management System solving real-time operational challenges — inventory, sales, orders, and billing all in one platform. Started as a college major project, later sold to a real vendor.",
+    tech: ["EJS", "Node.js", "MySQL", "Express.js", "REST API"],
+    images: [mh1, mh2],
+  },
+];
 
+/**
+ * Experience section.
+ *
+ * Props:
+ *   experiences — array of experience objects (optional).
+ *                 Falls back to DEFAULT_EXPERIENCES above.
+ */
+export default function Experience({ experiences = DEFAULT_EXPERIENCES }) {
+  return (
+    <section className="Experience" id="Experience">
+      {/* Section header */}
+      <div className="exp-header">
+        <span className="exp-tag-line" />
+        <span className="exp-tag-label">Work Experience</span>
+        <span className="exp-tag-line" />
+      </div>
+      <h2 className="exp-title">
+        Things I've <span className="exp-accent">Built &amp; Shipped</span>
+      </h2>
 
-
-
-
-export default function Experience(){
-    return(
-        <div className="Experience">
-            <h6>Work Experience</h6>
-            <div className="cards">
-                <div className="work">
-                <div className="content">
-                    <h6 class="workHeading"> <PhoneAndroidIcon style={{marginBottom:"5px",padding:"5px",fontSize:"2rem",color:"rgb(203, 3, 3)",borderRadius:"50px",backgroundColor:"#f5c2c2"}}/> Smart Mobile Shop</h6> <span id="workTag"> Local Vendor</span>
-                    <p className="tech"></p>
-                    <p className="details">
-                        <span>Smart Mobile Shop :</span> A Web App for a local vendor, featuring inventory management, sales tracking, and database management powered by Google Cloud Platform (GCP) for efficient business operations.
-                    </p>
-                    
-
-                        <div className="black">
-                          <Swiper
-                        className='imageSlider'
-                          modules={[Autoplay, Pagination, Navigation]}
-                          spaceBetween={30}
-                          slidesPerView={1}
-                          loop={true}
-                          autoplay={{ delay: 2000 }}
-                          pagination={{ clickable: true }}
-                          navigation={false}
-                        >
-                          <SwiperSlide><img src={sms1} /></SwiperSlide>
-                          <SwiperSlide><img src={sms2} /></SwiperSlide>
-                        </Swiper>
-                        </div>
-                    
-                </div>
-            </div>
-            <div className="work">
-                <div className="content">
-                    <h6 class="workHeading"><FoodBankIcon style={{marginBottom:"5px",padding:"5px",fontSize:"2rem",color:"rgb(203, 3, 3)",borderRadius:"50px",backgroundColor:"#f5c2c2"}}/> Meat Hub</h6> <span id="workTag">College Major Project + Sold To vendor <span> {/* effect of showing details div*/} </span></span>
-                    <p className="tech"></p>
-                    <p className="details">
-                        <span>MeatHub :</span> A Restaurant and Meat Shop Management System that solves real-time operational challenges with inventory, sales, orders, and billing all in one platform.
-                    </p>
-                   
-                        <div className="black">
-                        <Swiper
-                        className='imageSlider'
-                          modules={[Autoplay, Pagination, Navigation]}
-                          spaceBetween={30}
-                          slidesPerView={1}
-                          loop={true}
-                          autoplay={{ delay: 2000 }}
-                          pagination={{ clickable: true }}
-                          navigation={false}
-                        >
-                          <SwiperSlide><img src={mh1} /></SwiperSlide>
-                          <SwiperSlide><img src={mh2} /></SwiperSlide>
-                        </Swiper>
-
-                        </div>
-                    
-                </div>
-            </div>
-            </div>
-           
-        </div>
-    )
+      {/* Timeline */}
+      <div className="timeline">
+        {experiences.map((exp, index) => (
+          <ExperienceCard
+            key={exp.id}
+            icon={exp.icon}
+            title={exp.title}
+            role={exp.role}
+            type={exp.type}
+            period={exp.period}
+            description={exp.description}
+            tech={exp.tech}
+            images={exp.images}
+            isLast={index === experiences.length - 1}
+          />
+        ))}
+      </div>
+    </section>
+  );
 }

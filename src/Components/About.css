@@ -1,0 +1,253 @@
+/* ===== About Section ===== */
+.About {
+  background-color: #0e1019;
+  padding: 6rem 8rem;
+}
+
+.about-inner {
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---- Left: Profile ---- */
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.profile-ring {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #fb2c36, #ff6b6b, #0e1019 60%);
+  box-shadow: 0 0 30px rgba(251, 44, 54, 0.35), 0 0 60px rgba(251, 44, 54, 0.15);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  border: 3px solid #0e1019;
+}
+
+@keyframes ringPulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(251, 44, 54, 0.35), 0 0 60px rgba(251, 44, 54, 0.15); }
+  50%       { box-shadow: 0 0 40px rgba(251, 44, 54, 0.6),  0 0 80px rgba(251, 44, 54, 0.3); }
+}
+
+.profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #12151f;
+  border: 1px solid rgba(251, 44, 54, 0.35);
+  color: #bfb5a8;
+  font-size: 0.82rem;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+.profile-location {
+  color: #bfb5a8;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.profile-location i {
+  color: #fb2c36;
+}
+
+/* ---- Right: Bio ---- */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.tag-line {
+  display: block;
+  width: 36px;
+  height: 3px;
+  background: #fb2c36;
+  border-radius: 2px;
+}
+
+.tag-label {
+  color: #fb2c36;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-heading {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.accent {
+  color: #fb2c36;
+}
+
+.about-bio {
+  color: #bfb5a8;
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 540px;
+}
+
+.about-bio strong {
+  color: #fff;
+}
+
+/* ---- Stats ---- */
+.about-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #12151f;
+  border: 1px solid rgba(251, 44, 54, 0.25);
+  border-top: 2px solid #fb2c36;
+  border-radius: 0.75rem;
+  padding: 0.9rem 1.6rem;
+  min-width: 110px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(251, 44, 54, 0.2);
+}
+
+.stat-number {
+  color: #fb2c36;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.stat-label {
+  color: #bfb5a8;
+  font-size: 0.78rem;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+/* ---- Skills ---- */
+.skills-heading {
+  color: #bfb5a8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.skill-pill {
+  background: #12151f;
+  border: 1px solid rgba(251, 44, 54, 0.4);
+  color: #fb2c36;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.3rem 0.85rem;
+  border-radius: 2rem;
+  cursor: default;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.skill-pill:hover {
+  background: rgba(251, 44, 54, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 1100px) {
+  .About {
+    padding: 4rem 3rem;
+  }
+  .about-inner {
+    gap: 3rem;
+  }
+  .profile-ring {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .about-bio {
+    max-width: 100%;
+  }
+  .section-tag {
+    justify-content: center;
+  }
+  .about-stats {
+    justify-content: center;
+  }
+  .skill-pills {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .About {
+    padding: 3rem 1.5rem;
+  }
+  .about-heading {
+    font-size: 1.7rem;
+  }
+  .profile-ring {
+    width: 180px;
+    height: 180px;
+  }
+}
