@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Server runtime secrets (copy from server/.env.example)
+server/.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

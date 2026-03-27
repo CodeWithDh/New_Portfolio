@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio_app
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+      # ── Gmail credentials for the contact form ──────────────────
+      # Option A: set the values directly here (not recommended for git repos)
+      # - GMAIL_USER=your_gmail@gmail.com
+      # - GMAIL_APP_PASSWORD=your_app_password
+      #
+      # Option B (recommended): create server/.env from server/.env.example
+      # and uncomment the env_file line below
+    env_file:
+      - ./server/.env
+    restart: unless-stopped
