@@ -138,7 +138,7 @@ export default function Contact({ infoCards = INFO_CARDS }) {
                   className="cf-input"
                   type="text"
                   name="from_name"
-                  placeholder="Shivam Dhingra"
+                  placeholder="Enter Your Name"
                   value={form.from_name}
                   onChange={handleChange}
                   required
