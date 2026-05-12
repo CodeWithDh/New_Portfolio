@@ -4,7 +4,6 @@ import { TypeAnimation } from "react-type-animation";
 export default function HeroSection() {
   return (
     <>
-      {" "}
       <div className="HeroSection">
         <div className="HeroContent">
           <TypeAnimation
@@ -31,7 +30,7 @@ export default function HeroSection() {
               fontSize: "3rem",
             }}
           >
-            Shivam Dhinrga
+            Shivam Dhingra
           </h1>
           <p
             style={{
