@@ -1,167 +1,112 @@
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import "./Skills.css";
 
-gsap.registerPlugin(ScrollTrigger);
+/*
+  Professional Expertise Section — redesigned from progress bars to
+  a clean capability showcase with domain icons and tool tags.
+*/
 
-/* ─────────────────────────────────────────────
-   DEFAULT DATA
-   Pass a `categories` prop to override.
-   Each category: { label, color, skills: [{name, icon, level}] }
-   level = 0–100 (fills the bar)
-───────────────────────────────────────────── */
-const DEFAULT_CATEGORIES = [
+const DOMAINS = [
   {
-    id: "frontend",
-    label: "Frontend",
-    skills: [
-      { name: "React.js",    icon: "⚛️", level: 90 },
-      { name: "JavaScript",  icon: "🟨", level: 88 },
-      { name: "HTML / CSS",  icon: "🎨", level: 92 },
-      { name: "TypeScript",  icon: "🔷", level: 65 },
-    ],
+    id: "web",
+    emoji: <i className="fa-solid fa-globe"></i>,
+    title: "Web Development",
+    color: "#4f9cf9",
+    tools: ["React.js", "Next.js", "Node.js", "Express.js", "PHP", "HTML/CSS", "TypeScript"],
+    summary: "Full-stack web apps from static landing pages to complex platforms.",
   },
   {
-    id: "backend",
-    label: "Backend",
-    skills: [
-      { name: "Node.js",     icon: "🟩", level: 85 },
-      { name: "Express.js",  icon: "🚀", level: 85 },
-      { name: "PHP",         icon: "🐘", level: 72 },
-      { name: "REST APIs",   icon: "🔗", level: 88 },
-    ],
+    id: "mobile",
+    emoji: <i className="fa-solid fa-mobile-screen-button"></i>,
+    title: "Mobile & App Dev",
+    color: "#34d399",
+    tools: ["Flutter", "Dart", "Firebase", "REST APIs", "Play Store", "App Store"],
+    summary: "Cross-platform iOS & Android apps deployed to production.",
+  },
+  {
+    id: "design",
+    emoji: <i className="fa-solid fa-palette"></i>,
+    title: "UI/UX Design",
+    color: "#a78bfa",
+    tools: ["Figma", "Wireframing", "Prototyping", "Design Systems", "User Research"],
+    summary: "User-centered designs — from concept to developer-ready handoff.",
+  },
+  {
+    id: "marketing",
+    emoji: <i className="fa-solid fa-bullhorn"></i>,
+    title: "Digital Marketing & SEO",
+    color: "#fb923c",
+    tools: ["SEO", "Google Ads", "Meta Ads", "Social Media", "Content Strategy", "Analytics"],
+    summary: "Driving organic growth and paid campaigns with measurable ROI.",
   },
   {
     id: "database",
-    label: "Database & Cloud",
-    skills: [
-      { name: "MongoDB",     icon: "🍃", level: 82 },
-      { name: "MySQL",       icon: "🐬", level: 78 },
-      { name: "GCP",         icon: "☁️", level: 68 },
-    ],
+    emoji: <i className="fa-solid fa-database"></i>,
+    title: "Database & Cloud",
+    color: "#fb2c36",
+    tools: ["MongoDB", "MySQL", "GCP", "Firebase", "REST APIs", "Git"],
+    summary: "Scalable data architecture on cloud-native infrastructure.",
   },
   {
-    id: "tools",
-    label: "Tools & Others",
-    skills: [
-      { name: "Git / GitHub", icon: "🐙", level: 90 },
-      { name: "EJS",          icon: "📄", level: 75 },
-      { name: "Framer Motion",icon: "🎞️", level: 70 },
-      { name: "GSAP",         icon: "💚", level: 65 },
-    ],
+    id: "ai",
+    emoji: <i className="fa-solid fa-robot"></i>,
+    title: "AI & Automation",
+    color: "#fbbf24",
+    tools: ["OpenAI API", "ChatGPT Integration", "Workflow Automation", "Python", "Chatbots"],
+    summary: "Smart AI-powered features that reduce manual work and boost productivity.",
   },
 ];
 
-/** Reusable skill pill card */
-function SkillPill({ name, icon, level }) {
+const cardVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.45, delay: i * 0.07, ease: "easeOut" },
+  }),
+};
+
+export default function Skills() {
   return (
-    <div className="skill-card">
-      <span className="skill-emoji">{icon}</span>
-      <span className="skill-name">{name}</span>
-      <div className="skill-bar-track">
-        <div className="skill-bar-fill" data-level={level} />
-      </div>
-      <span className="skill-level">{level}%</span>
-    </div>
-  );
-}
-
-/** Reusable category block */
-function SkillCategory({ label, skills }) {
-  return (
-    <div className="skill-category">
-      <h3 className="skill-category-title">{label}</h3>
-      <div className="skill-grid">
-        {skills.map((s) => (
-          <SkillPill key={s.name} {...s} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/**
- * Skills Section
- * Props:
- *   categories — array of category objects (optional, falls back to DEFAULT_CATEGORIES)
- */
-export default function Skills({ categories = DEFAULT_CATEGORIES }) {
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const cards = sectionRef.current.querySelectorAll(".skill-card");
-    const bars  = sectionRef.current.querySelectorAll(".skill-bar-fill");
-    const titles= sectionRef.current.querySelectorAll(".skill-category-title");
-
-    // Cards entrance
-    gsap.fromTo(
-      cards,
-      { opacity: 0, y: 40, scale: 0.92 },
-      {
-        opacity: 1, y: 0, scale: 1,
-        duration: 0.55,
-        stagger: 0.07,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 78%",
-        },
-      }
-    );
-
-    // Category titles slide in
-    gsap.fromTo(
-      titles,
-      { opacity: 0, x: -30 },
-      {
-        opacity: 1, x: 0,
-        duration: 0.5,
-        stagger: 0.12,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      }
-    );
-
-    // Bars animate width from 0 to data-level
-    bars.forEach((bar) => {
-      const targetWidth = `${bar.dataset.level}%`;
-      gsap.fromTo(
-        bar,
-        { width: "0%" },
-        {
-          width: targetWidth,
-          duration: 1.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: bar,
-            start: "top 92%",
-          },
-        }
-      );
-    });
-
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
-  }, []);
-
-  return (
-    <section className="Skills" id="Skills" ref={sectionRef}>
+    <section className="Skills" id="Skills">
       {/* Header */}
       <div className="skills-header">
         <span className="skills-tag-line" />
-        <span className="skills-tag-label">Toolkit</span>
+        <span className="skills-tag-label">Expertise</span>
         <span className="skills-tag-line" />
       </div>
       <h2 className="skills-title">
-        Skills &amp; <span className="skills-accent">Technologies</span>
+        What I <span className="skills-accent">Bring to the Table</span>
       </h2>
+      <p className="skills-sub">
+        I don't just write code — I solve problems. Here's the full arsenal I use across every project.
+      </p>
 
-      <div className="skills-categories">
-        {categories.map((cat) => (
-          <SkillCategory key={cat.id} label={cat.label} skills={cat.skills} />
+      {/* Domain Cards Grid */}
+      <div className="skills-domains">
+        {DOMAINS.map((domain, i) => (
+          <motion.div
+            key={domain.id}
+            className="domain-card"
+            style={{ "--domain-color": domain.color }}
+            custom={i}
+            variants={cardVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+          >
+            <div className="domain-icon-wrap">
+              <span className="domain-emoji">{domain.emoji}</span>
+            </div>
+            <h3 className="domain-title">{domain.title}</h3>
+            <p className="domain-summary">{domain.summary}</p>
+            <div className="domain-tools">
+              {domain.tools.map((tool) => (
+                <span className="domain-tool" key={tool}>{tool}</span>
+              ))}
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>

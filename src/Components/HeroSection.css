@@ -34,22 +34,44 @@
     background-color: rgb(226, 1, 1);
     transform: scale(1.1);
 }
-.resumeBtn{
-    background-color: red;
+.resumeBtn {
+    background-color: #fb2c36;
     color: white;
-    padding: 0.45rem;
-    width: 10rem;
-    margin:0.9rem 0;
+    padding: 0.55rem 1.4rem;
+    margin: 0.9rem 0;
     border-radius: 0.5rem;
-    border: none;;
+    border: none;
     text-decoration: none;
-    font-weight: bold;
-    transition: all 0.1s ease-in-out;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    display: inline-block;
 }
-.resumeBtn:hover{
-    transform: scale(0.95);
-    background-color: rgb(226, 1, 1);
-}   
+.resumeBtn:hover {
+    transform: translateY(-2px);
+    background-color: #e01f28;
+    box-shadow: 0 6px 20px rgba(251, 44, 54, 0.35);
+}
+
+.servicesBtn {
+    background-color: transparent;
+    color: #bfb5a8;
+    padding: 0.5rem 1.4rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(191, 181, 168, 0.35);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+    display: inline-block;
+}
+.servicesBtn:hover {
+    border-color: #fb2c36;
+    color: #fb2c36;
+    transform: translateY(-2px);
+}
 
 .Avatar{
     background-image: url("../assets/avatar.png");

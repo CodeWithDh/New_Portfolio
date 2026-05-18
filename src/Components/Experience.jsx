@@ -29,7 +29,7 @@ const DEFAULT_EXPERIENCES = [
     id: 1,
     icon: <PhoneAndroidIcon />,
     title: "Smart Mobile Shop",
-    role: "Full Stack Developer",
+    role: "Software Engineer",
     type: "Freelance Client",
     period: "2024 — 2025",
     description:
@@ -41,7 +41,7 @@ const DEFAULT_EXPERIENCES = [
     id: 2,
     icon: <FoodBankIcon />,
     title: "Meat Hub",
-    role: "Full Stack Developer",
+    role: "Software Engineer",
     type: "College Major Project → Sold to Client",
     period: "2024",
     description:

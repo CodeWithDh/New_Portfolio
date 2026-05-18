@@ -1,15 +1,21 @@
 import "./About.css"
 import profile from "../assets/profile.png"
 
-const skills = [
-  "React.js", "Node.js", "Express.js", "MongoDB",
-  "JavaScript", "REST APIs", "GCP", "MySQL", "Git"
-]
-
 const stats = [
   { number: "2+", label: "Years Experience" },
-  { number: "5+", label: "Projects Built" },
-  { number: "3",  label: "Happy Clients" },
+  { number: "10+", label: "Projects Delivered" },
+  { number: "5+", label: "Happy Clients" },
+]
+
+const services = [
+  { icon: <i className="fa-solid fa-globe"></i>, label: "Custom Websites" },
+  { icon: <i className="fa-solid fa-mobile-screen-button"></i>, label: "App Development" },
+  { icon: <i className="fa-solid fa-palette"></i>, label: "UI/UX Design" },
+  { icon: <i className="fa-solid fa-magnifying-glass-chart"></i>, label: "SEO" },
+  { icon: <i className="fa-solid fa-bullhorn"></i>, label: "Digital Marketing" },
+  { icon: <i className="fa-solid fa-robot"></i>, label: "AI Integration" },
+  { icon: <i className="fa-brands fa-wordpress"></i>, label: "WordPress Sites" },
+  { icon: <i className="fa-solid fa-gears"></i>, label: "Management Systems" },
 ]
 
 export default function About() {
@@ -24,7 +30,7 @@ export default function About() {
           </div>
           <div className="profile-badge">
             <span className="badge-dot" />
-            Available for work
+            Available for Projects
           </div>
           <div className="profile-location">
             <i className="fa-solid fa-location-dot" /> Chandigarh, India
@@ -40,15 +46,16 @@ export default function About() {
           </div>
 
           <h2 className="about-heading">
-            Passionate <span className="accent">MERN Stack</span> Developer
+            Software Engineer Who{" "}
+            <span className="accent">Solves Real Problems</span>
           </h2>
 
           <p className="about-bio">
-            I'm <strong>Shivam Dhingra</strong> — a full-stack developer who spots
-            real-world problems and builds solutions that make a real impact. My focus
-            is on scalable, efficient backend systems with clean, intuitive frontends.
-            I've shipped production apps for local businesses and delivered college
-            projects that were later sold to real clients.
+            I'm <strong>Shivam Dhingra</strong> — a software engineer who bridges the gap between
+            technology and business. I build <strong>custom websites, web apps, mobile applications</strong> and
+            now also help businesses grow through <strong>SEO &amp; digital marketing</strong>. Whether it's a
+            landing page, a complex management system, or an AI-powered integration — I deliver
+            end-to-end from design to deployment.
           </p>
 
           {/* Stats */}
@@ -61,12 +68,14 @@ export default function About() {
             ))}
           </div>
 
-          {/* Skills */}
-          <div className="about-skills">
-            <p className="skills-heading">Tech I Work With</p>
-            <div className="skill-pills">
-              {skills.map((skill) => (
-                <span className="skill-pill" key={skill}>{skill}</span>
+          {/* What I Do */}
+          <div className="about-services">
+            <p className="skills-heading">What I Do</p>
+            <div className="service-chips">
+              {services.map((s) => (
+                <span className="service-chip" key={s.label}>
+                  <span>{s.icon}</span> {s.label}
+                </span>
               ))}
             </div>
           </div>

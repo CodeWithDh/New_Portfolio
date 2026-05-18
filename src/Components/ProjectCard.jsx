@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -5,52 +6,73 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 /**
- * ProjectCard — reusable project card.
+ * ProjectCard — reusable project card with image error handling.
  *
  * Props:
  *   title       — string
+ *   badge       — string  (e.g. "🇺🇸 US Client")
  *   description — string
  *   tech        — string[]
- *   images      — string[]   (optional — shows slider when provided)
+ *   images      — string[]   (optional — shows slider; supports remote URLs with fallback)
  *   githubUrl   — string     (link to GitHub repo)
  *   liveUrl     — string     (optional — live demo link)
- *   stars       — number     (optional)
- *   language    — string     (optional — primary language badge)
  *   index       — number     (used for stagger animation delay)
  */
 export default function ProjectCard({
   title,
+  badge,
   description,
   tech = [],
   images = [],
   githubUrl,
   liveUrl,
-  stars = 0,
-  language,
   index = 0,
 }) {
+  // Track which image indices failed to load
+  const [failedImages, setFailedImages] = useState(new Set());
+
+  const handleImgError = (idx) => {
+    setFailedImages((prev) => new Set([...prev, idx]));
+  };
+
+  // Only show images that loaded successfully
+  const validImages = images.filter((_, i) => !failedImages.has(i));
+
   return (
     <motion.div
       className="project-card"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
     >
+      {/* Preload all images (hidden) to detect 404s */}
+      <div style={{ display: "none" }}>
+        {images.map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt=""
+            onError={() => handleImgError(i)}
+            aria-hidden="true"
+          />
+        ))}
+      </div>
+
       {/* Image slider */}
-      {images.length > 0 ? (
+      {validImages.length > 0 ? (
         <div className="pc-img-wrap">
           <Swiper
             className="pc-swiper"
             modules={[Autoplay, Pagination]}
             spaceBetween={0}
             slidesPerView={1}
-            loop={images.length > 1}
+            loop={validImages.length > 1}
             autoplay={{ delay: 3000 }}
             pagination={{ clickable: true }}
           >
-            {images.map((img, i) => (
+            {validImages.map((img, i) => (
               <SwiperSlide key={i}>
                 <img
                   src={img}
@@ -72,12 +94,7 @@ export default function ProjectCard({
         {/* Title row */}
         <div className="pc-title-row">
           <h3 className="pc-title">{title}</h3>
-          <div className="pc-meta">
-            {language && <span className="pc-lang">{language}</span>}
-            {stars > 0 && (
-              <span className="pc-stars">⭐ {stars}</span>
-            )}
-          </div>
+          {badge && <span className="pc-badge">{badge}</span>}
         </div>
 
         <p className="pc-desc">{description}</p>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import "./Projects.css";
@@ -8,109 +8,108 @@ import sms2 from "../assets/sms2.png";
 import mh1  from "../assets/mh1.png";
 import mh2  from "../assets/mh2.png";
 
+/*
+  GitHub raw image URL helper.
+  Images are fetched from the "preview" folder of each GitHub repo.
+  If the images don't load (404), the card falls back to the placeholder banner.
+*/
+const ghRaw = (repo, file) =>
+  `https://raw.githubusercontent.com/CodeWithDh/${repo}/main/preview/${file}`;
+
 /* ─────────────────────────────────────────────
-   FEATURED PROJECTS
-   These are hand-picked and override the GitHub
-   API data for key projects with extra detail.
-   Add `repoName` to match it to a GitHub repo
-   so star counts / language stay live.
+   PROJECTS  (ordered as requested)
 ───────────────────────────────────────────── */
-const FEATURED = [
+const PROJECTS = [
+  {
+    id: "DrVenture-Figma",
+    title: "DrVenture — UI/UX Design",
+    badge: "🇺🇸 US Client",
+    description:
+      "Complete UI/UX design for a US-based healthcare client — DrVenture. Designed end-to-end in Figma: wireframes, design system, high-fidelity screens and interactive prototype ready for development handoff.",
+    tech: ["Figma", "UI/UX Design", "Prototype", "Design System"],
+    images: [
+      ghRaw("DrVenture-Figma", "1.png"),
+      ghRaw("DrVenture-Figma", "2.png"),
+      ghRaw("DrVenture-Figma", "3.png"),
+    ],
+    githubUrl: "https://github.com/CodeWithDh/DrVenture-Figma",
+    type: "Design",
+  },
+  {
+    id: "Laundry-App",
+    title: "Laundry App",
+    badge: "📱 Flutter",
+    description:
+      "Cross-platform laundry management app built with Flutter — deployed to production. Features order tracking, pickup scheduling, customer panel and an admin dashboard to manage operations on the go.",
+    tech: ["Flutter", "Dart", "Firebase", "Mobile App"],
+    images: [
+      ghRaw("Laundry-App", "1.png"),
+      ghRaw("Laundry-App", "2.png"),
+      ghRaw("Laundry-App", "3.png"),
+    ],
+    githubUrl: "https://github.com/CodeWithDh/Laundry-App",
+    type: "App",
+  },
+  {
+    id: "React-Animated",
+    title: "React Animated Site",
+    badge: "⚡ React",
+    description:
+      "Modern animated React website built with Framer Motion — showcasing smooth page transitions, entrance animations and interactive UI components. A front-end showcase of animation-first design.",
+    tech: ["React.js", "Framer Motion", "JavaScript", "CSS"],
+    images: [
+      ghRaw("React-Animated", "1.png"),
+      ghRaw("React-Animated", "2.png"),
+      ghRaw("React-Animated", "3.png"),
+    ],
+    githubUrl: "https://github.com/CodeWithDh/React-Animated",
+    type: "Web",
+  },
+  {
+    id: "Ecomerce-Website",
+    title: "E-Commerce Website",
+    badge: "🛒 TypeScript",
+    description:
+      "TypeScript-powered e-commerce frontend with product listings, cart management, filters and a clean responsive UI — built for scalability and real-world extensibility.",
+    tech: ["TypeScript", "React.js", "Node.js", "CSS"],
+    images: [
+      ghRaw("Ecomerce-Website", "1.png"),
+      ghRaw("Ecomerce-Website", "2.png"),
+    ],
+    githubUrl: "https://github.com/CodeWithDh/Ecomerce-Website",
+    type: "Web",
+  },
   {
     id: "SmartMobileApp",
     title: "Smart Mobile Shop",
+    badge: "☁️ GCP",
     description:
-      "Full-stack web app for a local mobile vendor to manage sale & purchase of 2nd-hand mobiles. Built on GCP — end-to-end from design to deployment.",
+      "Full-stack web app for a local mobile vendor — manages sale & purchase of 2nd-hand mobiles. Built on Google Cloud Platform, delivered end-to-end from design to deployment.",
     tech: ["PHP", "MySQL", "GCP", "JavaScript"],
     images: [sms1, sms2],
     githubUrl: "https://github.com/CodeWithDh/SmartMobileApp",
-    repoName: "SmartMobileApp",
+    type: "Web",
   },
   {
     id: "THE-MEAT-HUB",
     title: "The Meat Hub",
+    badge: "🏆 Sold to Client",
     description:
       "Restaurant & Meat Shop Management System — inventory, sales, orders and billing in one platform. Started as a college major project, later sold to a real vendor.",
     tech: ["EJS", "Node.js", "MySQL", "Express.js"],
     images: [mh1, mh2],
     githubUrl: "https://github.com/CodeWithDh/THE-MEAT-HUB",
-    repoName: "THE-MEAT-HUB",
-  },
-  {
-    id: "React-Animated",
-    title: "React Animated",
-    description:
-      "Modern animated React website built with Framer Motion — showcasing smooth page transitions, entrance animations and interactive UI components.",
-    tech: ["React.js", "Framer Motion", "JavaScript"],
-    images: [],
-    githubUrl: "https://github.com/CodeWithDh/React-Animated",
-    repoName: "React-Animated",
-  },
-  {
-    id: "Ecomerce-Website",
-    title: "E-Commerce Website",
-    description:
-      "TypeScript-powered e-commerce frontend with product listings, cart management and a clean, responsive UI — built for scalability.",
-    tech: ["TypeScript", "React.js", "Node.js"],
-    images: [],
-    githubUrl: "https://github.com/CodeWithDh/Ecomerce-Website",
-    repoName: "Ecomerce-Website",
-  },
-  {
-    id: "AirBnb",
-    title: "AirBnb Clone",
-    description:
-      "Full-featured AirBnb clone with listing management, user auth, booking flows, map integration and a polished responsive UI.",
-    tech: ["Node.js", "Express.js", "MongoDB", "EJS"],
-    images: [],
-    githubUrl: "https://github.com/CodeWithDh/AirBnb",
-    repoName: "AirBnb",
-  },
-  {
-    id: "Chat-System",
-    title: "Real-Time Chat System",
-    description:
-      "Real-time chat application with WebSocket support, room-based messaging and a clean minimalist interface.",
-    tech: ["Node.js", "Socket.io", "EJS", "Express.js"],
-    images: [],
-    githubUrl: "https://github.com/CodeWithDh/Chat-System",
-    repoName: "Chat-System",
+    type: "Web",
   },
 ];
 
-const GITHUB_USERNAME = "CodeWithDh";
+export default function Projects() {
+  const [filter, setFilter] = useState("All");
+  const types = ["All", "Design", "App", "Web"];
 
-/**
- * Projects Section
- * Props:
- *   projects — array of project objects (optional, falls back to FEATURED)
- *              Each item: { id, title, description, tech, images, githubUrl, liveUrl, repoName }
- */
-export default function Projects({ projects = FEATURED }) {
-  const [repoMeta, setRepoMeta] = useState({}); // { repoName: { stars, language } }
-
-  // Fetch live star counts & language from GitHub API
-  useEffect(() => {
-    async function fetchMeta() {
-      try {
-        const res  = await fetch(
-          `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`
-        );
-        const data = await res.json();
-        const map  = {};
-        data.forEach((repo) => {
-          map[repo.name] = {
-            stars:    repo.stargazers_count,
-            language: repo.language,
-          };
-        });
-        setRepoMeta(map);
-      } catch {
-        /* silently fail — just show without star counts */
-      }
-    }
-    fetchMeta();
-  }, []);
+  const visible = filter === "All"
+    ? PROJECTS
+    : PROJECTS.filter((p) => p.type === filter);
 
   return (
     <section className="Projects" id="Projects">
@@ -137,27 +136,36 @@ export default function Projects({ projects = FEATURED }) {
         Things I've <span className="proj-accent">Built</span>
       </motion.h2>
 
-      <div className="proj-grid">
-        {projects.map((proj, index) => {
-          const meta = repoMeta[proj.repoName] || {};
-          return (
-            <ProjectCard
-              key={proj.id}
-              index={index}
-              title={proj.title}
-              description={proj.description}
-              tech={proj.tech}
-              images={proj.images || []}
-              githubUrl={proj.githubUrl}
-              liveUrl={proj.liveUrl}
-              stars={meta.stars || proj.stars || 0}
-              language={meta.language || proj.language}
-            />
-          );
-        })}
+      {/* Filter tabs */}
+      <div className="proj-filters">
+        {types.map((t) => (
+          <button
+            key={t}
+            className={`proj-filter-btn ${filter === t ? "proj-filter-btn--active" : ""}`}
+            onClick={() => setFilter(t)}
+          >
+            {t}
+          </button>
+        ))}
       </div>
 
-      {/* View all repos link */}
+      <div className="proj-grid">
+        {visible.map((proj, index) => (
+          <ProjectCard
+            key={proj.id}
+            index={index}
+            title={proj.title}
+            badge={proj.badge}
+            description={proj.description}
+            tech={proj.tech}
+            images={proj.images || []}
+            githubUrl={proj.githubUrl}
+            liveUrl={proj.liveUrl}
+          />
+        ))}
+      </div>
+
+      {/* View all repos */}
       <motion.div
         className="proj-view-all"
         initial={{ opacity: 0 }}
@@ -166,7 +174,7 @@ export default function Projects({ projects = FEATURED }) {
         transition={{ delay: 0.4 }}
       >
         <a
-          href={`https://github.com/${GITHUB_USERNAME}`}
+          href="https://github.com/CodeWithDh"
           target="_blank"
           rel="noopener noreferrer"
           className="proj-gh-btn"
